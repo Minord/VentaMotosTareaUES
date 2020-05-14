@@ -16,5 +16,17 @@ namespace SistemaGestionMotosUES
         {
             InitializeComponent();
         }
+
+        private void ButtonCancelar_Click(object sender, EventArgs e)
+        {
+            Close();
+            Dispose();
+        }
+
+        private void ButtonRegistro_Click(object sender, EventArgs e)
+        {
+            FormRegistro formRegistro = new FormRegistro();
+            formRegistro.ShowDialog();
+        }
     }
 }

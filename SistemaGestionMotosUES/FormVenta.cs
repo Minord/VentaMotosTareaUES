@@ -7,14 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SistemaGestionMotosUES.Models;
 
 namespace SistemaGestionMotosUES
 {
     public partial class FormVenta : Form
     {
-        public FormVenta()
+        public FormVenta(Vendedor vendedor, Moto moto)
         {
             InitializeComponent();
+        }
+
+        private void ButtonCancelar_Click(object sender, EventArgs e)
+        {
+            Close();
+            Dispose();
         }
     }
 }

@@ -28,21 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.textBoxUsuario = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonRegistro = new System.Windows.Forms.Button();
+            this.buttonCancelar = new System.Windows.Forms.Button();
+            this.buttonIniciar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // textBox9
+            // textBoxPassword
             // 
-            this.textBox9.Location = new System.Drawing.Point(139, 98);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(100, 20);
-            this.textBox9.TabIndex = 25;
+            this.textBoxPassword.Location = new System.Drawing.Point(139, 98);
+            this.textBoxPassword.Name = "textBoxPassword";
+            this.textBoxPassword.Size = new System.Drawing.Size(100, 20);
+            this.textBoxPassword.TabIndex = 25;
             // 
             // label9
             // 
@@ -53,12 +53,12 @@
             this.label9.TabIndex = 24;
             this.label9.Text = "Contraseña";
             // 
-            // textBox10
+            // textBoxUsuario
             // 
-            this.textBox10.Location = new System.Drawing.Point(139, 61);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(100, 20);
-            this.textBox10.TabIndex = 23;
+            this.textBoxUsuario.Location = new System.Drawing.Point(139, 61);
+            this.textBoxUsuario.Name = "textBoxUsuario";
+            this.textBoxUsuario.Size = new System.Drawing.Size(100, 20);
+            this.textBoxUsuario.TabIndex = 23;
             // 
             // label10
             // 
@@ -69,44 +69,46 @@
             this.label10.TabIndex = 22;
             this.label10.Text = "Usuario";
             // 
-            // button2
+            // buttonRegistro
             // 
-            this.button2.Location = new System.Drawing.Point(146, 211);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 27;
-            this.button2.Text = "Registrarse";
-            this.button2.UseVisualStyleBackColor = true;
+            this.buttonRegistro.Location = new System.Drawing.Point(146, 211);
+            this.buttonRegistro.Name = "buttonRegistro";
+            this.buttonRegistro.Size = new System.Drawing.Size(75, 23);
+            this.buttonRegistro.TabIndex = 27;
+            this.buttonRegistro.Text = "Registrarse";
+            this.buttonRegistro.UseVisualStyleBackColor = true;
+            this.buttonRegistro.Click += new System.EventHandler(this.ButtonRegistro_Click);
             // 
-            // button3
+            // buttonCancelar
             // 
-            this.button3.Location = new System.Drawing.Point(65, 211);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 28;
-            this.button3.Text = "Cancelar";
-            this.button3.UseVisualStyleBackColor = true;
+            this.buttonCancelar.Location = new System.Drawing.Point(65, 211);
+            this.buttonCancelar.Name = "buttonCancelar";
+            this.buttonCancelar.Size = new System.Drawing.Size(75, 23);
+            this.buttonCancelar.TabIndex = 28;
+            this.buttonCancelar.Text = "Cancelar";
+            this.buttonCancelar.UseVisualStyleBackColor = true;
+            this.buttonCancelar.Click += new System.EventHandler(this.ButtonCancelar_Click);
             // 
-            // button1
+            // buttonIniciar
             // 
-            this.button1.Location = new System.Drawing.Point(227, 211);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 29;
-            this.button1.Text = "Iniciar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonIniciar.Location = new System.Drawing.Point(227, 211);
+            this.buttonIniciar.Name = "buttonIniciar";
+            this.buttonIniciar.Size = new System.Drawing.Size(75, 23);
+            this.buttonIniciar.TabIndex = 29;
+            this.buttonIniciar.Text = "Iniciar";
+            this.buttonIniciar.UseVisualStyleBackColor = true;
             // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(323, 246);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.textBox9);
+            this.Controls.Add(this.buttonIniciar);
+            this.Controls.Add(this.buttonCancelar);
+            this.Controls.Add(this.buttonRegistro);
+            this.Controls.Add(this.textBoxPassword);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.textBox10);
+            this.Controls.Add(this.textBoxUsuario);
             this.Controls.Add(this.label10);
             this.Name = "Login";
             this.Text = "Login";
@@ -117,12 +119,12 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox textBoxUsuario;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonRegistro;
+        private System.Windows.Forms.Button buttonCancelar;
+        private System.Windows.Forms.Button buttonIniciar;
     }
 }
