@@ -55,7 +55,7 @@
             this.buttonCancelar.TabIndex = 31;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
-            this.buttonCancelar.Click += new System.EventHandler(this.Button2_Click);
+            this.buttonCancelar.Click += new System.EventHandler(this.ButtonCancelar_Click);
             // 
             // buttonRegistro
             // 
@@ -201,6 +201,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FormRegistro";
             this.Text = "FormRegistro";
+            this.Load += new System.EventHandler(this.FormRegistro_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

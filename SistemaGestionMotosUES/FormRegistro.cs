@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SistemaGestionMotosUES.Validators;
+using SistemaGestionMotosUES.Models;
+
 
 namespace SistemaGestionMotosUES
 {
@@ -16,12 +18,9 @@ namespace SistemaGestionMotosUES
         public FormRegistro()
         {
             InitializeComponent();
-        }
+            textBoxContraseña.PasswordChar = '*';
+            textBoxRepContraseña.PasswordChar = '*';
 
-        private void Button2_Click(object sender, EventArgs e)
-        {
-            Close();
-            Dispose();
         }
         private void TextBoxNombre_Validating(object sender, CancelEventArgs e)
         {
@@ -138,11 +137,38 @@ namespace SistemaGestionMotosUES
 
         private void ButtonRegistro_Click(object sender, EventArgs e)
         {
-            if (false) {
-                //Registrar Usuario
-            } else {
+            bool noerrors = true;
+            foreach (Control c in this.Controls)
+            {
+                if (errorProvider.GetError(c).Length > 0)
+                    noerrors = false;
+            }
+
+            if (noerrors) {
+                string nombre = textBoxNombre.Text;
+                DateTime fechaNacimento = dateTimePickerNacimiento.Value;
+                string correo = textBoxCorreo.Text;
+                string telefono = textBoxTelefono.Text;
+                string password = textBoxContraseña.Text;
+
+                Vendedor vendedor = new Vendedor(nombre, fechaNacimento, correo, telefono, "", password);
+
+                vendedor.registrarVendedorDb();
+                MessageBox.Show("Vendedor Registrado");
+            }
+            else {
                 MessageBox.Show("Tiene que llenar el formulario correctamente");
             }
+        }
+
+        private void FormRegistro_Load(object sender, EventArgs e)
+        {
+        }
+
+        private void ButtonCancelar_Click(object sender, EventArgs e)
+        {
+            Close();
+            Dispose();
         }
     }
 }

@@ -8,8 +8,6 @@ namespace SistemaGestionMotosUES.Models
 {
     public class Catalogo
     {
-
-
-
+        
     }
 }
