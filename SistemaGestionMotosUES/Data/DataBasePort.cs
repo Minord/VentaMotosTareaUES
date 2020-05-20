@@ -98,5 +98,18 @@ namespace SistemaGestionMotosUES.Data
 
             return resultado;
         }
+
+        public static float getScalarQuery(string queryText) {
+            SQLiteCommand db_command;
+            SQLiteConnection db_connection = crearConexion();
+            db_command = db_connection.CreateCommand();
+            db_command.CommandText = queryText;
+
+            float resultado = (float)db_command.ExecuteScalar();
+
+            db_connection.Close();
+
+            return resultado;
+        }
     }
 }
