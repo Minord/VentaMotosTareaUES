@@ -8,15 +8,15 @@ namespace SistemaGestionMotosUES.Models
 {
     public class Moto
     {
-        private int moto_id { get; }
-        private string descripcion { get; }
-        private string marca { get; }
-        private int year { get; }
-        private string modelo { get; }
-        private string color { get; }
-        private string tipo { get; }
-        private float price { get; }
-        private int stock { get; }
+        public int moto_id { get; }
+        public string descripcion { get; }
+        public string marca { get; }
+        public int year { get; }
+        public string modelo { get; }
+        public string color { get; }
+        public string tipo { get; }
+        public float price { get; }
+        public int stock { get; }
 
 
         /// <summary>
@@ -69,14 +69,12 @@ namespace SistemaGestionMotosUES.Models
             float min_price, 
             float max_price)
         {
-            //TODO: construir el query SQL
-
-            //propuesta Query
             string queryTemplate = "SELECT * FROM Motos WHERE " +
                 $"marca = {marca} AND " +
                 $"year = {year} AND" +
                 $"tipo = {tipo} AND" +
                 $"color = {color} AND" +
+                "stock > 0 AND" +
                 $"precio BETWEEN {min_price} AND {max_price};";
 
             return null;
@@ -87,7 +85,7 @@ namespace SistemaGestionMotosUES.Models
         }
 
         public void registrarMotoDB() {
-            //TODO: Crear codigo para crear en base de datos
+            
         }
     }
 }

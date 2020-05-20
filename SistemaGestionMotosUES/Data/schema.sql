@@ -12,6 +12,7 @@
 
 CREATE TABLE Vendedores (
     vendedor_id varchar(50),
+	nombre varchar(50),
 	fecha_nacimiento DATE,
 	telefono VARCHAR(12),
 	correo VARCHAR(50),

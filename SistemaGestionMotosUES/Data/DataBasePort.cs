@@ -28,7 +28,26 @@ namespace SistemaGestionMotosUES.Data
             return sqliteCon;
         }
 
-        public static void insertarDatos(string queryText) {
+        public static int insertarDatos(string queryText) {
+            SQLiteCommand db_command;
+            SQLiteConnection db_connection = crearConexion();
+            db_command = db_connection.CreateCommand();
+
+            db_command.CommandText = queryText;
+            db_command.ExecuteNonQuery();
+
+            db_command.CommandText = "select last_insert_rowid()";
+            Int64 lastRowID64 = (Int64)db_command.ExecuteScalar();
+
+            int lastRowID = (int)lastRowID64;
+
+            db_connection.Close();
+
+            return lastRowID;
+        }
+
+        public static void actualizarDatos(string queryText)
+        {
             SQLiteCommand db_command;
             SQLiteConnection db_connection = crearConexion();
             db_command = db_connection.CreateCommand();
@@ -36,6 +55,7 @@ namespace SistemaGestionMotosUES.Data
             db_command.CommandText = queryText;
             db_command.ExecuteNonQuery();
             db_connection.Close();
+
         }
 
         /// <summary>
