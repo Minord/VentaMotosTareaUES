@@ -65,7 +65,7 @@ namespace SistemaGestionMotosUES
         private void TextBoxCorreo_Validating(object sender, CancelEventArgs e)
         {
             string errorMsg = "error";
-            if (!Validaciones.isEmail(textBoxCorreo.Text))
+            if (!Validaciones.isEmail(textBoxCorreo.Text) || Validaciones.isEmply(textBoxRepContraseña.Text))
             {
                 // Cancel the event and select the text to be corrected by the user.
                 e.Cancel = true;
@@ -101,7 +101,7 @@ namespace SistemaGestionMotosUES
         private void TextBoxRepContraseña_Validating(object sender, CancelEventArgs e)
         {
             string errorMsg = "Las contraseñas tienen que coinsidir";
-            if (!(textBoxContraseña.Text == textBoxRepContraseña.Text))
+            if (!(textBoxContraseña.Text == textBoxRepContraseña.Text) || Validaciones.isEmply(textBoxRepContraseña.Text))
             {
                 // Cancel the event and select the text to be corrected by the user.
                 e.Cancel = true;
