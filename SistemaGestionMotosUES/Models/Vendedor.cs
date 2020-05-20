@@ -48,11 +48,11 @@ namespace SistemaGestionMotosUES.Models
 
         public void registrarVendedorDb() {
             string query_text = "INSERT INTO Vendedores (nombre, fecha_nacimiento, telefono, correo, direccion, contraseña) VALUES (" +
-                $"'{nombre}'" +
-                $"'{fechaNacimento.ToString()}'" +
-                $"'{telefono}'" +
-                $"'{correo}'" +
-                $"'{direccion}'" +
+                $"'{nombre}'," +
+                $"'{fechaNacimento.ToString()}'," +
+                $"'{telefono}'," +
+                $"'{correo}'," +
+                $"'{direccion}'," +
                 $"'{password}');";
             vendedor_id = DataBasePort.insertarDatos(query_text);
         }
@@ -60,7 +60,7 @@ namespace SistemaGestionMotosUES.Models
         public void actualizarVendedorDb() {
             string query_text = "UPDATE Vendedores SET" +
                 $"nombre = '{nombre}'," +
-                $" fecha_nacimiento = '{fechaNacimento.ToString()}'," +
+                $" fecha_nacimiento = '{fechaNacimento.Date.ToString()}'," +
                 $" telefono = '{telefono}'," +
                 $" correo = '{correo}'," +
                 $" direccion =  '{direccion}'," +

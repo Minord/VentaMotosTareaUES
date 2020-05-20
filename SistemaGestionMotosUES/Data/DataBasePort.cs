@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SQLite;
 using System.Data;
+using System.IO;
 
 namespace SistemaGestionMotosUES.Data
 {
@@ -12,18 +13,20 @@ namespace SistemaGestionMotosUES.Data
     {
 
         //Data base directory 
-        string cs = @"URI=file:C:\sqlite\db\venta_motos.db";
+
+        static string dbFile = "venta_motos.db";
+        static string workingDirectory = Environment.CurrentDirectory;
+        static string cs = Path.Combine(Directory.GetParent(workingDirectory).Parent.FullName , @"data\", dbFile);
 
         private static SQLiteConnection crearConexion() {
-            SQLiteConnection sqliteCon = new SQLiteConnection("Data Source=" +
-            "database.db; Version = 3; New = True; Compress = True; ");
+            SQLiteConnection sqliteCon = new SQLiteConnection($"Data Source= { cs };Version=3;New=False;Compress=True;" );
 
             try
             {
                 sqliteCon.Open();
             }
             catch (Exception ex){
-
+                Console.Out.WriteLine(ex.Message);
             }
             return sqliteCon;
         }
