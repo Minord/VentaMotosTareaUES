@@ -24,7 +24,7 @@ namespace SistemaGestionMotosUES
         }
         private void TextBoxNombre_Validating(object sender, CancelEventArgs e)
         {
-            string errorMsg = "Incerte un nombre valido sin numeros";
+            string errorMsg = "Incerte un correo valido";
             string text = textBoxNombre.Text;
             if (!(Validaciones.notContainsNumbers(text) && !Validaciones.isEmply(text)))
             {

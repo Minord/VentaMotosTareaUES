@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.textBoxUsuario = new System.Windows.Forms.TextBox();
@@ -35,6 +36,8 @@
             this.buttonRegistro = new System.Windows.Forms.Button();
             this.buttonCancelar = new System.Windows.Forms.Button();
             this.buttonIniciar = new System.Windows.Forms.Button();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxPassword
@@ -43,6 +46,8 @@
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.Size = new System.Drawing.Size(100, 20);
             this.textBoxPassword.TabIndex = 25;
+            this.textBoxPassword.Validating += new System.ComponentModel.CancelEventHandler(this.TextBoxPassword_Validating);
+            this.textBoxPassword.Validated += new System.EventHandler(this.TextBoxPassword_Validated);
             // 
             // label9
             // 
@@ -59,15 +64,17 @@
             this.textBoxUsuario.Name = "textBoxUsuario";
             this.textBoxUsuario.Size = new System.Drawing.Size(100, 20);
             this.textBoxUsuario.TabIndex = 23;
+            this.textBoxUsuario.Validating += new System.ComponentModel.CancelEventHandler(this.TextBoxUsuario_Validating);
+            this.textBoxUsuario.Validated += new System.EventHandler(this.TextBoxUsuario_Validated);
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(89, 64);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(43, 13);
+            this.label10.Size = new System.Drawing.Size(38, 13);
             this.label10.TabIndex = 22;
-            this.label10.Text = "Usuario";
+            this.label10.Text = "Correo";
             // 
             // buttonRegistro
             // 
@@ -97,6 +104,11 @@
             this.buttonIniciar.TabIndex = 29;
             this.buttonIniciar.Text = "Iniciar";
             this.buttonIniciar.UseVisualStyleBackColor = true;
+            this.buttonIniciar.Click += new System.EventHandler(this.ButtonIniciar_Click);
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
             // 
             // Login
             // 
@@ -112,6 +124,7 @@
             this.Controls.Add(this.label10);
             this.Name = "Login";
             this.Text = "Login";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -126,5 +139,6 @@
         private System.Windows.Forms.Button buttonRegistro;
         private System.Windows.Forms.Button buttonCancelar;
         private System.Windows.Forms.Button buttonIniciar;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }
