@@ -17,6 +17,7 @@ namespace SistemaGestionMotosUES
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainCatalogo());
+            //prueba de commit
         }
     }
 }
