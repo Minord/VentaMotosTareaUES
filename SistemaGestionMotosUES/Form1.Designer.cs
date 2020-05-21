@@ -48,9 +48,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.comboBoxMarca = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.listView = new System.Windows.Forms.ListView();
             this.buttonComprar = new System.Windows.Forms.Button();
             this.errorProviderMain = new System.Windows.Forms.ErrorProvider(this.components);
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBoxFiltro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderMain)).BeginInit();
             this.SuspendLayout();
@@ -71,7 +71,7 @@
             this.iniciarSeccionButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iniciarSeccionButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.iniciarSeccionButton.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.iniciarSeccionButton.Location = new System.Drawing.Point(491, 17);
+            this.iniciarSeccionButton.Location = new System.Drawing.Point(515, 17);
             this.iniciarSeccionButton.Name = "iniciarSeccionButton";
             this.iniciarSeccionButton.Size = new System.Drawing.Size(116, 41);
             this.iniciarSeccionButton.TabIndex = 1;
@@ -81,7 +81,7 @@
             // 
             // buttonConfUser
             // 
-            this.buttonConfUser.Location = new System.Drawing.Point(349, 17);
+            this.buttonConfUser.Location = new System.Drawing.Point(366, 17);
             this.buttonConfUser.Name = "buttonConfUser";
             this.buttonConfUser.Size = new System.Drawing.Size(116, 41);
             this.buttonConfUser.TabIndex = 2;
@@ -117,7 +117,7 @@
             this.groupBoxFiltro.Controls.Add(this.label2);
             this.groupBoxFiltro.Location = new System.Drawing.Point(16, 80);
             this.groupBoxFiltro.Name = "groupBoxFiltro";
-            this.groupBoxFiltro.Size = new System.Drawing.Size(591, 126);
+            this.groupBoxFiltro.Size = new System.Drawing.Size(621, 126);
             this.groupBoxFiltro.TabIndex = 4;
             this.groupBoxFiltro.TabStop = false;
             this.groupBoxFiltro.Text = "Filtro de Productos";
@@ -128,7 +128,7 @@
             this.buttonBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonBuscar.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonBuscar.Location = new System.Drawing.Point(469, 70);
+            this.buttonBuscar.Location = new System.Drawing.Point(499, 70);
             this.buttonBuscar.Name = "buttonBuscar";
             this.buttonBuscar.Size = new System.Drawing.Size(116, 41);
             this.buttonBuscar.TabIndex = 6;
@@ -249,22 +249,13 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "marca";
             // 
-            // listView
-            // 
-            this.listView.HideSelection = false;
-            this.listView.Location = new System.Drawing.Point(16, 219);
-            this.listView.Name = "listView";
-            this.listView.Size = new System.Drawing.Size(591, 266);
-            this.listView.TabIndex = 5;
-            this.listView.UseCompatibleStateImageBehavior = false;
-            // 
             // buttonComprar
             // 
             this.buttonComprar.BackColor = System.Drawing.Color.LightGreen;
             this.buttonComprar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonComprar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonComprar.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonComprar.Location = new System.Drawing.Point(491, 491);
+            this.buttonComprar.Location = new System.Drawing.Point(521, 483);
             this.buttonComprar.Name = "buttonComprar";
             this.buttonComprar.Size = new System.Drawing.Size(116, 30);
             this.buttonComprar.TabIndex = 15;
@@ -276,14 +267,29 @@
             // 
             this.errorProviderMain.ContainerControl = this;
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.AutoScroll = true;
+            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 188F));
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(16, 212);
+            this.tableLayoutPanel1.MaximumSize = new System.Drawing.Size(650, 265);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(621, 265);
+            this.tableLayoutPanel1.TabIndex = 16;
+            // 
             // MainCatalogo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(629, 525);
+            this.ClientSize = new System.Drawing.Size(649, 525);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.buttonComprar);
-            this.Controls.Add(this.listView);
             this.Controls.Add(this.groupBoxFiltro);
             this.Controls.Add(this.buttonNuevoProducto);
             this.Controls.Add(this.buttonConfUser);
@@ -311,7 +317,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboBoxMarca;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ListView listView;
         private System.Windows.Forms.Button buttonBuscar;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
@@ -324,6 +329,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button buttonComprar;
         private System.Windows.Forms.ErrorProvider errorProviderMain;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }
 

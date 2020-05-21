@@ -53,7 +53,7 @@
             this.textBoxDescripcion.BackColor = System.Drawing.SystemColors.Control;
             this.textBoxDescripcion.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxDescripcion.Location = new System.Drawing.Point(123, 23);
+            this.textBoxDescripcion.Location = new System.Drawing.Point(107, 23);
             this.textBoxDescripcion.Multiline = true;
             this.textBoxDescripcion.Name = "textBoxDescripcion";
             this.textBoxDescripcion.ReadOnly = true;
@@ -108,7 +108,7 @@
             // buttonComprar
             // 
             this.buttonComprar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.buttonComprar.Location = new System.Drawing.Point(107, 206);
+            this.buttonComprar.Location = new System.Drawing.Point(102, 194);
             this.buttonComprar.Name = "buttonComprar";
             this.buttonComprar.Size = new System.Drawing.Size(75, 23);
             this.buttonComprar.TabIndex = 21;
@@ -120,7 +120,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(118, 5);
+            this.label6.Location = new System.Drawing.Point(104, 7);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(78, 13);
             this.label6.TabIndex = 20;
@@ -149,10 +149,12 @@
             // pictureBox1
             // 
             this.pictureBox1.ErrorImage = null;
-            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.InitialImage = null;
             this.pictureBox1.Location = new System.Drawing.Point(3, 17);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(114, 84);
+            this.pictureBox1.Size = new System.Drawing.Size(98, 67);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 17;
             this.pictureBox1.TabStop = false;
             // 
@@ -210,7 +212,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "UserControlMotoItem";
-            this.Size = new System.Drawing.Size(200, 239);
+            this.Size = new System.Drawing.Size(189, 239);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

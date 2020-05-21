@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SistemaGestionMotosUES.Validators;
 using SistemaGestionMotosUES.Models;
+using SistemaGestionMotosUES.Controls;
 
 
 namespace SistemaGestionMotosUES
@@ -24,12 +25,43 @@ namespace SistemaGestionMotosUES
         public MainCatalogo()
         {
             InitializeComponent();
+
+            //Add Todas las motos Registradas.
+            Moto m1 = new Moto("Es un moto bien chiva XDXDXD",
+                              "Toyota",
+                              2005,
+                              "Cero",
+                              "Comercial",
+                              "Negro",
+                              1305.0f,
+                              4);
+            Moto m2 = new Moto("Es un moto bien chiva XDXDXD",
+                               "Toyota",
+                               2005,
+                               "Dos",
+                               "Comercial",
+                               "Negro",
+                               1305.33f,
+                               4);
+            UserControlMotoItem uc1 = new UserControlMotoItem(m1, vendedorActual);
+            UserControlMotoItem uc2 = new UserControlMotoItem(m2, vendedorActual);
+            UserControlMotoItem uc3 = new UserControlMotoItem(m2, vendedorActual);
+            UserControlMotoItem uc4 = new UserControlMotoItem(m2, vendedorActual);
+
+            tableLayoutPanel1.Controls.Add(uc1);
+            tableLayoutPanel1.Controls.Add(uc2);
+            tableLayoutPanel1.Controls.Add(uc3);
+            tableLayoutPanel1.Controls.Add(uc4);
+
+
+
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             //Se usara para inicializar los combo box
-
+           
         }
 
         private void IniciarSeccionButton_Click(object sender, EventArgs e)
