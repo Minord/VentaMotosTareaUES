@@ -100,14 +100,18 @@ namespace SistemaGestionMotosUES.Data
         }
 
         public static float getScalarQuery(string queryText) {
+            float resultado = -1;
             SQLiteCommand db_command;
             SQLiteConnection db_connection = crearConexion();
             db_command = db_connection.CreateCommand();
             db_command.CommandText = queryText;
 
-            float resultado = (float)db_command.ExecuteScalar();
-
+            object resultado_q = db_command.ExecuteScalar();
             db_connection.Close();
+
+            if (resultado.GetType() != typeof(DBNull)) {
+                resultado = (float)resultado_q;
+            }
 
             return resultado;
         }

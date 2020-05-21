@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,12 +39,65 @@ namespace SistemaGestionMotosUES.Models
             this.password = password;
         }
 
-        public static Vendedor getVendedorPorId() {
+        public Vendedor(
+            int vendedor_id,
+            string nombre,
+            DateTime fechaNacimento,
+            string correo,
+            string telefono,
+            string direccion,
+            string password)
+        {
+            this.vendedor_id = vendedor_id;
+            this.nombre = nombre;
+            this.fechaNacimento = fechaNacimento;
+            this.correo = correo;
+            this.telefono = telefono;
+            this.direccion = direccion;
+            this.password = password;
+        }
+
+        public static Vendedor getVendedorPorId(string vendedor_id) {
+            string query_text = $"SELECT vendedor_id, nombre, fecha_nacimiento, telefono, correo, direccion, contraseña FROM Vendedores WHERE vendedor_id = '{vendedor_id}';";
+
+            DataTable result = DataBasePort.getTableQuery(query_text);
+
+            int id = (int)result.Rows[0]["vendedor_id"];
+            string nombre = (string)result.Rows[0]["nombre"];
+            DateTime fechaNacimiento = DateTime.Parse( (string)result.Rows[0]["fecha_nacimiento"] );
+            string telefono = (string)result.Rows[0]["telefono"];
+            string correo = (string)result.Rows[0]["correo"];
+            string direccion = (string)result.Rows[0]["direccion"];
+            string contraseña = (string)result.Rows[0]["contraseña"];
+
+            Vendedor encontrado = new Vendedor(id, nombre, fechaNacimiento, correo, telefono, direccion, contraseña);
+
+
             return null;
         }
 
-        public static int getIdByName() {
-            return -1;
+        public static int getIdByCorreoAndPassword(string correo, string password) {
+            string query_text = $"SELECT vendedor_id FROM Vendedores WHERE correo = '{correo}'AND contraseña = '{password}';";
+
+            int result = (int)DataBasePort.getScalarQuery(query_text);
+
+            return result;
+        }
+
+        public static bool revisarExistenciaPorCorreo(string correo) {
+            string query_text = $"SELECT 200 FROM Vendedores WHERE correo = '{correo}'";
+
+            int result = (int)DataBasePort.getScalarQuery(query_text);
+
+            return result == 200;
+        }
+
+        public static bool revisarValidezPassword(string correo, string password) {
+            string query_text = $"SELECT 200 FROM Vendedores WHERE correo = '{correo}' AND contraseña = '{password}'";
+
+            int result = (int)DataBasePort.getScalarQuery(query_text);
+
+            return result == 200;
         }
 
         public void registrarVendedorDb() {
