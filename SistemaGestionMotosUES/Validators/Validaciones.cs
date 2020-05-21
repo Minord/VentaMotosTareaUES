@@ -22,7 +22,10 @@ namespace SistemaGestionMotosUES.Validators
         }
         public static bool isTelefone(string text)
         {
-            return Regex.IsMatch(text, @"^\d{4}-\d{4}$");
+            string pattern = @"^\d{8}";
+            Console.WriteLine(Regex.IsMatch(text, pattern));
+            return Regex.IsMatch(text,pattern);
+            
 
         }
 

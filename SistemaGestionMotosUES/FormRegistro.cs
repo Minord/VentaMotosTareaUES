@@ -22,19 +22,53 @@ namespace SistemaGestionMotosUES
             textBoxRepContraseña.PasswordChar = '*';
 
         }
+
+        //Metodo necesario para forzar el cierre del formulario cuando el boton cancelar tengo el foco
+        public void cancelador(CancelEventArgs e)
+        {
+            if (buttonCancelar.ContainsFocus)
+            {
+                e.Cancel = false;
+            }
+        }
+
+        //Metodo que retorna un valor booleano que permite saber si algun TextBox esta o no vacio
+        private bool validar(Form formulario)
+        {
+            bool vacio = false; // Variable utilizada para saber si hay algún TextBox vacio.
+            // Buscamos en cada TextBox de nuestro Formulario.
+            foreach (Control oControls in formulario.Controls)
+            {
+                // Verificamos que no este vacio.
+                if (oControls is TextBox & oControls.Text == String.Empty)
+                {
+                    // Si esta vacio el TextBox asignamos el valor True a nuestra variable.
+                    vacio = true;
+                }
+            }
+            // Si nuestra variable es verdadera mostramos un mensaje.
+            if (vacio == true) MessageBox.Show("Favor de llenar todos los campos.");
+
+            return !vacio;
+        }
+
         private void TextBoxNombre_Validating(object sender, CancelEventArgs e)
         {
+            
             string errorMsg = "Incerte un nombre valido sin numeros";
             string text = textBoxNombre.Text;
             if (!(Validaciones.notContainsNumbers(text) && !Validaciones.isEmply(text)))
             {
+                Console.WriteLine("Hasta aqui");
                 // Cancel the event and select the text to be corrected by the user.
                 e.Cancel = true;
                 textBoxNombre.Select(0, textBoxNombre.Text.Length);
 
                 // Set the ErrorProvider error with the text to display. 
                 this.errorProvider.SetError(textBoxNombre, errorMsg);
+                cancelador(e);
             }
+            
         }
 
         private void TextBoxNombre_Validated(object sender, EventArgs e)
@@ -44,17 +78,19 @@ namespace SistemaGestionMotosUES
 
         private void TextBoxTelefono_Validating(object sender, CancelEventArgs e)
         {
-            string errorMsg = "Porfavor incerte un numero valido con el formato ####-####";
+            string errorMsg = "Porfavor incerte un numero valido con el formato ########";
             string text = textBoxTelefono.Text;
-            if (!(!Validaciones.isEmply(text) && Validaciones.isTelefone(text)))
+            if (!(Validaciones.isEmply(text) || Validaciones.isTelefone(text)))
             {
                 // Cancel the event and select the text to be corrected by the user.
                 e.Cancel = true;
-                textBoxNombre.Select(0, textBoxNombre.Text.Length);
+                textBoxTelefono.Select(0, textBoxTelefono.Text.Length);
 
                 // Set the ErrorProvider error with the text to display. 
-                this.errorProvider.SetError(textBoxNombre, errorMsg);
+                this.errorProvider.SetError(textBoxTelefono, errorMsg);
+                cancelador(e);
             }
+            
         }
 
         private void TextBoxTelefono_Validated(object sender, EventArgs e)
@@ -64,7 +100,7 @@ namespace SistemaGestionMotosUES
 
         private void TextBoxCorreo_Validating(object sender, CancelEventArgs e)
         {
-            string errorMsg = "error";
+            string errorMsg = "Debe introducir un correo de la forma: ejemplo@";
             if (!Validaciones.isEmail(textBoxCorreo.Text))
             {
                 // Cancel the event and select the text to be corrected by the user.
@@ -73,7 +109,9 @@ namespace SistemaGestionMotosUES
 
                 // Set the ErrorProvider error with the text to display. 
                 this.errorProvider.SetError(textBoxCorreo, errorMsg);
+                cancelador(e);
             }
+
         }
 
         private void TextBoxCorreo_Validated(object sender, EventArgs e)
@@ -92,6 +130,7 @@ namespace SistemaGestionMotosUES
 
                 // Set the ErrorProvider error with the text to display. 
                 this.errorProvider.SetError(textBoxContraseña, errorMsg);
+                cancelador(e);
             }
         }
         private void TextBoxContraseña_Validated(object sender, EventArgs e)
@@ -100,7 +139,7 @@ namespace SistemaGestionMotosUES
         }
         private void TextBoxRepContraseña_Validating(object sender, CancelEventArgs e)
         {
-            string errorMsg = "Las contraseñas tienen que coinsidir";
+            string errorMsg = "Las contraseñas tienen que coincidir";
             if (!(textBoxContraseña.Text == textBoxRepContraseña.Text))
             {
                 // Cancel the event and select the text to be corrected by the user.
@@ -109,6 +148,7 @@ namespace SistemaGestionMotosUES
 
                 // Set the ErrorProvider error with the text to display. 
                 this.errorProvider.SetError(textBoxRepContraseña, errorMsg);
+                cancelador(e);
             }
         }
 
@@ -119,7 +159,7 @@ namespace SistemaGestionMotosUES
 
         private void DateTimePickerNacimiento_Validating(object sender, CancelEventArgs e)
         {
-            string errorMsg = "tiene que seleccionar un fecha";
+            string errorMsg = "Tiene que seleccionar un fecha";
             if (dateTimePickerNacimiento.Text.Length == 0)
             {
                 // Cancel the event and select the text to be corrected by the user.
@@ -127,6 +167,7 @@ namespace SistemaGestionMotosUES
 
                 // Set the ErrorProvider error with the text to display. 
                 this.errorProvider.SetError(dateTimePickerNacimiento, errorMsg);
+                cancelador(e);
             }
         }
 
@@ -137,14 +178,20 @@ namespace SistemaGestionMotosUES
 
         private void ButtonRegistro_Click(object sender, EventArgs e)
         {
+            if (validar(this))
+            {
+          
             bool noerrors = true;
+
             foreach (Control c in this.Controls)
             {
+
                 if (errorProvider.GetError(c).Length > 0)
                     noerrors = false;
             }
 
-            if (noerrors) {
+            if (noerrors)
+            {
                 string nombre = textBoxNombre.Text;
                 DateTime fechaNacimento = dateTimePickerNacimiento.Value;
                 string correo = textBoxCorreo.Text;
@@ -156,8 +203,11 @@ namespace SistemaGestionMotosUES
                 vendedor.registrarVendedorDb();
                 MessageBox.Show("Vendedor Registrado");
             }
-            else {
+            else
+            {
                 MessageBox.Show("Tiene que llenar el formulario correctamente");
+            }
+
             }
         }
 
@@ -166,7 +216,7 @@ namespace SistemaGestionMotosUES
         }
 
         private void ButtonCancelar_Click(object sender, EventArgs e)
-        {
+        {           
             Close();
             Dispose();
         }
