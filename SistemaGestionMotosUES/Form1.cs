@@ -13,11 +13,9 @@ using SistemaGestionMotosUES.Models;
 
 namespace SistemaGestionMotosUES
 {
+
     public partial class MainCatalogo : Form
     {
-
-        //Variables
-
         //Usuario de vendedor
         private Vendedor vendedorActual;
 
@@ -39,6 +37,11 @@ namespace SistemaGestionMotosUES
             //Abrir nueva Ventana en El sistema
             Login login = new Login();
             login.ShowDialog();
+            if (login.vendedorFinding)
+            {
+                vendedorActual = login.vendedor_resultado;
+            }
+            login.Dispose();
         }
 
         private void TextBoxMinPrice_Validating(object sender, CancelEventArgs e)

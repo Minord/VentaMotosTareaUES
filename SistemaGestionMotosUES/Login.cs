@@ -8,21 +8,26 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SistemaGestionMotosUES.Validators;
+using SistemaGestionMotosUES.Models;
 
 namespace SistemaGestionMotosUES
 {
     public partial class Login : Form
     {
+        public bool vendedorFinding = false;
+        public Vendedor vendedor_resultado = null;
         public Login()
         {
             InitializeComponent();
             textBoxPassword.PasswordChar = '*';
+            buttonCancelar.CausesValidation = false;
+            buttonRegistro.CausesValidation = false;
         }
 
         private void ButtonCancelar_Click(object sender, EventArgs e)
         {
             Close();
-            Dispose();
+            //Dispose();
         }
 
         private void ButtonRegistro_Click(object sender, EventArgs e)
@@ -42,10 +47,27 @@ namespace SistemaGestionMotosUES
 
             if (noerrors)
             {
-                //revisar si el correo existe.
+                if (Vendedor.revisarExistenciaPorCorreo(textBoxUsuario.Text)) {
+                    if (Vendedor.revisarValidezPassword(textBoxUsuario.Text, textBoxPassword.Text)) {
 
-                //ejecutar
-                
+                        Vendedor vendedor = Vendedor.getVendedorPorId(Vendedor.getIdByCorreoAndPassword(textBoxUsuario.Text, textBoxPassword.Text).ToString());
+
+                        // Cerrar y enviar el usuario a el form1 1
+                        vendedorFinding = true;
+                        vendedor_resultado = vendedor;
+
+                        MessageBox.Show($"Se ha iniciado seccion al usuario {vendedor_resultado.nombre}");
+                        Close();
+                    }
+                    else {
+                        MessageBox.Show("La contraseña no es valida");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("El coreo no es valido");
+                }
+
             }
             else
             {
@@ -64,7 +86,7 @@ namespace SistemaGestionMotosUES
                 textBoxUsuario.Select(0, textBoxUsuario.Text.Length);
 
                 // Set the ErrorProvider error with the text to display. 
-                this.errorProvider.SetError(textBoxUsuario, errorMsg);
+                errorProvider.SetError(textBoxUsuario, errorMsg);
             }
         }
 
@@ -84,7 +106,7 @@ namespace SistemaGestionMotosUES
                 textBoxPassword.Select(0, textBoxPassword.Text.Length);
 
                 // Set the ErrorProvider error with the text to display. 
-                this.errorProvider.SetError(textBoxPassword, errorMsg);
+                errorProvider.SetError(textBoxPassword, errorMsg);
             }
         }
 

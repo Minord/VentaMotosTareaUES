@@ -16,12 +16,12 @@ namespace SistemaGestionMotosUES.Models
         {
             get { return vendedor_id; }
         }
-        private string nombre { get; }
-        private DateTime fechaNacimento { get; set; }
-        private string correo { get; set; }
-        private string telefono { get; set; }
-        private string direccion { get; set; }
-        private string password { get; set; }
+        public string nombre { get; }
+        public DateTime fechaNacimento { get; set; }
+        public string correo { get; set; }
+        public string telefono { get; set; }
+        public string direccion { get; set; }
+        public string password { get; set; }
 
         public Vendedor(
             string nombre, 
@@ -58,22 +58,25 @@ namespace SistemaGestionMotosUES.Models
         }
 
         public static Vendedor getVendedorPorId(string vendedor_id) {
-            string query_text = $"SELECT vendedor_id, nombre, fecha_nacimiento, telefono, correo, direccion, contraseña FROM Vendedores WHERE vendedor_id = '{vendedor_id}';";
+            string query_text = $"SELECT vendedor_id, nombre, cast(fecha_nacimiento as text) AS fecha_nacimiento, telefono, correo, direccion, contraseña FROM Vendedores WHERE vendedor_id = '{vendedor_id}';";
 
             DataTable result = DataBasePort.getTableQuery(query_text);
 
-            int id = (int)result.Rows[0]["vendedor_id"];
-            string nombre = (string)result.Rows[0]["nombre"];
-            DateTime fechaNacimiento = DateTime.Parse( (string)result.Rows[0]["fecha_nacimiento"] );
-            string telefono = (string)result.Rows[0]["telefono"];
-            string correo = (string)result.Rows[0]["correo"];
-            string direccion = (string)result.Rows[0]["direccion"];
-            string contraseña = (string)result.Rows[0]["contraseña"];
+            if (result.Rows.Count <= 0) {
+                return null;
+            }
+            int id = Int32.Parse(result.Rows[0]["vendedor_id"].ToString());
+            string nombre = result.Rows[0]["nombre"].ToString();
+            DateTime fechaNacimiento = DateTime.Parse( result.Rows[0]["fecha_nacimiento"].ToString() );
+            string telefono = result.Rows[0]["telefono"].ToString();
+            string correo = result.Rows[0]["correo"].ToString();
+            string direccion =result.Rows[0]["direccion"].ToString();
+            string contraseña = result.Rows[0]["contraseña"].ToString();
 
             Vendedor encontrado = new Vendedor(id, nombre, fechaNacimiento, correo, telefono, direccion, contraseña);
 
 
-            return null;
+            return encontrado;
         }
 
         public static int getIdByCorreoAndPassword(string correo, string password) {

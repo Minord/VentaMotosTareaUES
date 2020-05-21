@@ -20,7 +20,7 @@ namespace SistemaGestionMotosUES
             InitializeComponent();
             textBoxContraseña.PasswordChar = '*';
             textBoxRepContraseña.PasswordChar = '*';
-
+            buttonCancelar.CausesValidation = false;
         }
         private void TextBoxNombre_Validating(object sender, CancelEventArgs e)
         {
@@ -50,10 +50,10 @@ namespace SistemaGestionMotosUES
             {
                 // Cancel the event and select the text to be corrected by the user.
                 e.Cancel = true;
-                textBoxNombre.Select(0, textBoxNombre.Text.Length);
+                textBoxTelefono.Select(0, textBoxTelefono.Text.Length);
 
                 // Set the ErrorProvider error with the text to display. 
-                this.errorProvider.SetError(textBoxNombre, errorMsg);
+                this.errorProvider.SetError(textBoxTelefono, errorMsg);
             }
         }
 
@@ -65,7 +65,7 @@ namespace SistemaGestionMotosUES
         private void TextBoxCorreo_Validating(object sender, CancelEventArgs e)
         {
             string errorMsg = "error";
-            if (!Validaciones.isEmail(textBoxCorreo.Text) || Validaciones.isEmply(textBoxRepContraseña.Text))
+            if (!Validaciones.isEmail(textBoxCorreo.Text) || Validaciones.isEmply(textBoxCorreo.Text))
             {
                 // Cancel the event and select the text to be corrected by the user.
                 e.Cancel = true;

@@ -93,14 +93,14 @@ namespace SistemaGestionMotosUES.Data
             db_command = db_connection.CreateCommand();
 
             db_command.CommandText = queryText;
-
-            resultado.Load(db_command.ExecuteReader());
+            SQLiteDataReader result = db_command.ExecuteReader();
+            resultado.Load(result);
 
             return resultado;
         }
 
         public static float getScalarQuery(string queryText) {
-            float resultado = -1;
+            float? resultado = -1;
             SQLiteCommand db_command;
             SQLiteConnection db_connection = crearConexion();
             db_command = db_connection.CreateCommand();
@@ -110,10 +110,10 @@ namespace SistemaGestionMotosUES.Data
             db_connection.Close();
 
             if (resultado.GetType() != typeof(DBNull)) {
-                resultado = (float)resultado_q;
+                resultado = float.Parse(resultado_q.ToString());
             }
 
-            return resultado;
+            return (float) resultado;
         }
     }
 }

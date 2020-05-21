@@ -11,7 +11,7 @@
 )
 
 CREATE TABLE Vendedores (
-    vendedor_id varchar(50),
+    vendedor_id INTEGER PRIMARY KEY,
 	nombre varchar(50),
 	fecha_nacimiento DATE,
 	telefono VARCHAR(12),
@@ -21,7 +21,7 @@ CREATE TABLE Vendedores (
 )
 
 CREATE TABLE Ventas (
-	venta_id SERIAL PRIMARY KEY,
+	venta_id INTEGER PRIMARY KEY,
 	vendedor_id INTEGER,
 	moto_id INTEGER,
 	nombre_cliente VARCHAR(100),
