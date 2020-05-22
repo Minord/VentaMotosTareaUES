@@ -31,17 +31,23 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxNombreCliente = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBoxVendedor = new System.Windows.Forms.TextBox();
-            this.textBoxPago = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxNumTarjeta = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dataGridViewRecibo = new System.Windows.Forms.DataGridView();
             this.buttonComprar = new System.Windows.Forms.Button();
             this.buttonCancelar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRecibo)).BeginInit();
+            this.textBoxPrecioMoto = new System.Windows.Forms.TextBox();
+            this.textBoxIVA = new System.Windows.Forms.TextBox();
+            this.textBoxTotal = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.textBoxNombreMoto = new System.Windows.Forms.TextBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.textBoxNombreVendedor = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -68,20 +74,6 @@
             this.label2.Size = new System.Drawing.Size(90, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "nombre vendedor";
-            // 
-            // textBoxVendedor
-            // 
-            this.textBoxVendedor.Location = new System.Drawing.Point(130, 90);
-            this.textBoxVendedor.Name = "textBoxVendedor";
-            this.textBoxVendedor.Size = new System.Drawing.Size(231, 20);
-            this.textBoxVendedor.TabIndex = 3;
-            // 
-            // textBoxPago
-            // 
-            this.textBoxPago.Location = new System.Drawing.Point(130, 126);
-            this.textBoxPago.Name = "textBoxPago";
-            this.textBoxPago.Size = new System.Drawing.Size(231, 20);
-            this.textBoxPago.TabIndex = 5;
             // 
             // label3
             // 
@@ -124,18 +116,10 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker1.TabIndex = 10;
             // 
-            // dataGridViewRecibo
-            // 
-            this.dataGridViewRecibo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewRecibo.Location = new System.Drawing.Point(24, 240);
-            this.dataGridViewRecibo.Name = "dataGridViewRecibo";
-            this.dataGridViewRecibo.Size = new System.Drawing.Size(346, 164);
-            this.dataGridViewRecibo.TabIndex = 11;
-            // 
             // buttonComprar
             // 
             this.buttonComprar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.buttonComprar.Location = new System.Drawing.Point(343, 433);
+            this.buttonComprar.Location = new System.Drawing.Point(331, 360);
             this.buttonComprar.Name = "buttonComprar";
             this.buttonComprar.Size = new System.Drawing.Size(75, 23);
             this.buttonComprar.TabIndex = 12;
@@ -144,7 +128,7 @@
             // 
             // buttonCancelar
             // 
-            this.buttonCancelar.Location = new System.Drawing.Point(255, 433);
+            this.buttonCancelar.Location = new System.Drawing.Point(236, 360);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(75, 23);
             this.buttonCancelar.TabIndex = 13;
@@ -152,27 +136,120 @@
             this.buttonCancelar.UseVisualStyleBackColor = true;
             this.buttonCancelar.Click += new System.EventHandler(this.ButtonCancelar_Click);
             // 
+            // textBoxPrecioMoto
+            // 
+            this.textBoxPrecioMoto.Location = new System.Drawing.Point(240, 261);
+            this.textBoxPrecioMoto.Name = "textBoxPrecioMoto";
+            this.textBoxPrecioMoto.ReadOnly = true;
+            this.textBoxPrecioMoto.Size = new System.Drawing.Size(100, 20);
+            this.textBoxPrecioMoto.TabIndex = 14;
+            // 
+            // textBoxIVA
+            // 
+            this.textBoxIVA.Location = new System.Drawing.Point(240, 287);
+            this.textBoxIVA.Name = "textBoxIVA";
+            this.textBoxIVA.ReadOnly = true;
+            this.textBoxIVA.Size = new System.Drawing.Size(100, 20);
+            this.textBoxIVA.TabIndex = 15;
+            // 
+            // textBoxTotal
+            // 
+            this.textBoxTotal.Location = new System.Drawing.Point(240, 313);
+            this.textBoxTotal.Name = "textBoxTotal";
+            this.textBoxTotal.ReadOnly = true;
+            this.textBoxTotal.Size = new System.Drawing.Size(100, 20);
+            this.textBoxTotal.TabIndex = 16;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(170, 268);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(64, 13);
+            this.label6.TabIndex = 17;
+            this.label6.Text = "Precio Moto";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(189, 294);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(24, 13);
+            this.label7.TabIndex = 18;
+            this.label7.Text = "IVA";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(189, 320);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(31, 13);
+            this.label8.TabIndex = 19;
+            this.label8.Text = "Total";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(48, 238);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(71, 13);
+            this.label9.TabIndex = 21;
+            this.label9.Text = "Nombre Moto";
+            // 
+            // textBoxNombreMoto
+            // 
+            this.textBoxNombreMoto.Location = new System.Drawing.Point(130, 235);
+            this.textBoxNombreMoto.Name = "textBoxNombreMoto";
+            this.textBoxNombreMoto.ReadOnly = true;
+            this.textBoxNombreMoto.Size = new System.Drawing.Size(210, 20);
+            this.textBoxNombreMoto.TabIndex = 20;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "Tarjeta",
+            "Efectivo"});
+            this.comboBox2.Location = new System.Drawing.Point(130, 126);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(231, 21);
+            this.comboBox2.TabIndex = 23;
+            // 
+            // textBoxNombreVendedor
+            // 
+            this.textBoxNombreVendedor.Location = new System.Drawing.Point(130, 90);
+            this.textBoxNombreVendedor.Name = "textBoxNombreVendedor";
+            this.textBoxNombreVendedor.ReadOnly = true;
+            this.textBoxNombreVendedor.Size = new System.Drawing.Size(231, 20);
+            this.textBoxNombreVendedor.TabIndex = 24;
+            // 
             // FormVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(430, 468);
+            this.ClientSize = new System.Drawing.Size(430, 395);
+            this.Controls.Add(this.textBoxNombreVendedor);
+            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.textBoxNombreMoto);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.textBoxTotal);
+            this.Controls.Add(this.textBoxIVA);
+            this.Controls.Add(this.textBoxPrecioMoto);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonComprar);
-            this.Controls.Add(this.dataGridViewRecibo);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.textBoxNumTarjeta);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBoxPago);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBoxVendedor);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBoxNombreCliente);
             this.Controls.Add(this.label1);
             this.Name = "FormVenta";
             this.Text = "FormVenta";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRecibo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -183,15 +260,22 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBoxNombreCliente;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBoxVendedor;
-        private System.Windows.Forms.TextBox textBoxPago;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBoxNumTarjeta;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DataGridView dataGridViewRecibo;
         private System.Windows.Forms.Button buttonComprar;
         private System.Windows.Forms.Button buttonCancelar;
+        private System.Windows.Forms.TextBox textBoxPrecioMoto;
+        private System.Windows.Forms.TextBox textBoxIVA;
+        private System.Windows.Forms.TextBox textBoxTotal;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox textBoxNombreMoto;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.TextBox textBoxNombreVendedor;
     }
 }

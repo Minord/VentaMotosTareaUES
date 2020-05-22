@@ -48,7 +48,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.comboBoxMarca = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.buttonComprar = new System.Windows.Forms.Button();
             this.errorProviderMain = new System.Windows.Forms.ErrorProvider(this.components);
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBoxFiltro.SuspendLayout();
@@ -249,20 +248,6 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "marca";
             // 
-            // buttonComprar
-            // 
-            this.buttonComprar.BackColor = System.Drawing.Color.LightGreen;
-            this.buttonComprar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonComprar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonComprar.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonComprar.Location = new System.Drawing.Point(521, 483);
-            this.buttonComprar.Name = "buttonComprar";
-            this.buttonComprar.Size = new System.Drawing.Size(116, 30);
-            this.buttonComprar.TabIndex = 15;
-            this.buttonComprar.Text = "Comprar";
-            this.buttonComprar.UseVisualStyleBackColor = false;
-            this.buttonComprar.Click += new System.EventHandler(this.ButtonComprar_Click);
-            // 
             // errorProviderMain
             // 
             this.errorProviderMain.ContainerControl = this;
@@ -273,13 +258,13 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 188F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 189F));
             this.tableLayoutPanel1.Location = new System.Drawing.Point(16, 212);
-            this.tableLayoutPanel1.MaximumSize = new System.Drawing.Size(650, 265);
+            this.tableLayoutPanel1.MaximumSize = new System.Drawing.Size(650, 300);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(621, 265);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(621, 300);
             this.tableLayoutPanel1.TabIndex = 16;
             // 
             // MainCatalogo
@@ -289,7 +274,6 @@
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(649, 525);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Controls.Add(this.buttonComprar);
             this.Controls.Add(this.groupBoxFiltro);
             this.Controls.Add(this.buttonNuevoProducto);
             this.Controls.Add(this.buttonConfUser);
@@ -327,7 +311,6 @@
         private System.Windows.Forms.ComboBox comboBoxColor;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button buttonComprar;
         private System.Windows.Forms.ErrorProvider errorProviderMain;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }

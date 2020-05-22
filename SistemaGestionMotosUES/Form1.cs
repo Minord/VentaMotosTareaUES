@@ -198,13 +198,5 @@ namespace SistemaGestionMotosUES
         {
 
         }
-
-        private void ButtonComprar_Click(object sender, EventArgs e)
-        {
-            //TODO: Poner la variable moto
-            FormVenta formVentas = new FormVenta(vendedorActual, null);
-            formVentas.ShowDialog();
-            
-        }
     }
 }

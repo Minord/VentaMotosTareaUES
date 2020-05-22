@@ -32,7 +32,17 @@ namespace SistemaGestionMotosUES.Controls
 
         private void ButtonComprar_Click(object sender, EventArgs e)
         {
-            //TODO: Lanzar formulario de venta.
+            if (vendedor != null)
+            {
+                FormVenta formVentas = new FormVenta(vendedor, moto);
+                formVentas.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Inicio secion como vendedor para poder realizar la venta");
+            }
+
+            //Restar 1 al stock.
         }
     }
 }
