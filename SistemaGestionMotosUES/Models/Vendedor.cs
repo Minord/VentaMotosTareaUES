@@ -68,7 +68,7 @@ namespace SistemaGestionMotosUES.Models
             }
             int id = Int32.Parse(result.Rows[0]["vendedor_id"].ToString());
             string nombre = result.Rows[0]["nombre"].ToString();
-            DateTime fechaNacimiento = DateTime.Parse( result.Rows[0]["fecha_nacimiento"].ToString() );
+            DateTime fechaNacimiento = DateTime.Now;
             string telefono = result.Rows[0]["telefono"].ToString();
             string correo = result.Rows[0]["correo"].ToString();
             string direccion =result.Rows[0]["direccion"].ToString();
@@ -116,14 +116,14 @@ namespace SistemaGestionMotosUES.Models
         }
 
         public void actualizarVendedorDb() {
-            string query_text = "UPDATE Vendedores SET" +
-                $"nombre = '{nombre}'," +
+            string query_text = "UPDATE Vendedores SET " +
+                $" nombre = '{nombre}'," +
                 $" fecha_nacimiento = '{fechaNacimento.Date.ToString()}'," +
                 $" telefono = '{telefono}'," +
                 $" correo = '{correo}'," +
                 $" direccion =  '{direccion}'," +
                 $" contraseña = '{password}' WHERE" +
-                $"vendedor_id = {vendedor_id};";
+                $" vendedor_id = {vendedor_id};";
             DataBasePort.actualizarDatos(query_text);
         }
 
@@ -152,7 +152,7 @@ namespace SistemaGestionMotosUES.Models
             DataBasePort.insertarDatos(registerQuery);
 
             //Disminuir el stock
-            DataBasePort.actualizarDatos($"UPDATE Motos SET strock = (strock -1) WHERE moto_id = {moto_id}");
+            DataBasePort.actualizarDatos($"UPDATE Motos SET stock = (stock -1) WHERE moto_id = {moto_id}");
         }
 
 

@@ -41,22 +41,7 @@ namespace SistemaGestionMotosUES
 
         private void ButtonComprar_Click(object sender, EventArgs e)
         {
-            bool noerrors = true;
-            foreach (Control c in this.Controls)
-            {
-                if (errorProvider.GetError(c).Length > 0)
-                    noerrors = false;
-            }
-
-            if (noerrors)
-            {
-                vendedor.realizarVenta(moto, textBoxNombreCliente.Text ,textBoxNumTarjeta.Text, comboBox2.Text);
-                MessageBox.Show("Compra realizada");
-            }
-            else
-            {
-                MessageBox.Show("Tiene que llenar los campos correctamente");
-            }
+            
         }
 
         private void TextBoxNombreCliente_Validating(object sender, CancelEventArgs e)
