@@ -114,6 +114,7 @@
             // 
             this.textBoxPassword.Location = new System.Drawing.Point(116, 235);
             this.textBoxPassword.Name = "textBoxPassword";
+            this.textBoxPassword.PasswordChar = '*';
             this.textBoxPassword.Size = new System.Drawing.Size(100, 20);
             this.textBoxPassword.TabIndex = 11;
             this.textBoxPassword.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxPassword_Validating);
@@ -132,6 +133,7 @@
             // 
             this.textBoxRepPassword.Location = new System.Drawing.Point(116, 273);
             this.textBoxRepPassword.Name = "textBoxRepPassword";
+            this.textBoxRepPassword.PasswordChar = '*';
             this.textBoxRepPassword.Size = new System.Drawing.Size(100, 20);
             this.textBoxRepPassword.TabIndex = 13;
             this.textBoxRepPassword.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxRepPassword_Validating);

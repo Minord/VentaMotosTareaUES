@@ -14,10 +14,18 @@ namespace SistemaGestionMotosUES
 {
     public partial class FormActualizarUsuario : Form
     {
+        int vendedor_id = 0;
         public FormActualizarUsuario(Vendedor vendedor)
         {
             InitializeComponent();
+            textBoxNombre.Text = vendedor.nombre;
+            dateTimePickerNacimiento.Value = vendedor.fechaNacimento;
+            textBoxCorreo.Text = vendedor.correo;
+            textBoxTelefono.Text = vendedor.telefono;
+            textBoxPassword.Text = vendedor.password;
+            vendedor_id = vendedor.Vendedor_id;
         }
+
 
         private void ButtonCancelar_Click(object sender, EventArgs e)
         {
@@ -29,16 +37,17 @@ namespace SistemaGestionMotosUES
         {
             if (validar(this))
             {
-                //string nombre = textBoxNombre.Text;
-                //DateTime fechaNacimento = dateTimePickerNacimiento.Value;
-                //string correo = textBoxCorreo.Text;
-                //string telefono = textBoxTelefono.Text;
-                //string password = textBoxPassword.Text;
+                
+                string nombre = textBoxNombre.Text;
+                DateTime fechaNacimento = dateTimePickerNacimiento.Value;
+                string correo = textBoxCorreo.Text;
+                string telefono = textBoxTelefono.Text;
+                string password = textBoxPassword.Text;
 
-                //Vendedor vendedor = new Vendedor(nombre, fechaNacimento, correo, telefono, "", password);
+                Vendedor vendedor = new Vendedor(vendedor_id, nombre, fechaNacimento, correo, telefono, "", password);
 
-                //vendedor.registrarVendedorDb();
-                //MessageBox.Show("Vendedor Registrado");
+                vendedor.actualizarVendedorDb();
+                MessageBox.Show("Vendedor Registrado, para ver sus cambios reingrese");
             }
         }
 
