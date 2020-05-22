@@ -31,6 +31,32 @@ namespace SistemaGestionMotosUES.Data
             return sqliteCon;
         }
 
+        //public static bool realConection(string correo, string password)
+        //{
+        //    string queryText = $"SELECT vendedor_id FROM Vendedores WHERE correo = '{correo}'AND contraseña = '{password}';";
+        //    SQLiteCommand db_command;
+        //    SQLiteConnection db_connection = crearConexion();
+        //    db_command = db_connection.CreateCommand();
+
+        //    db_command.CommandText = queryText;
+        //    SQLiteDataReader result = db_command.ExecuteReader();
+        //    bool askingresult = result.HasRows;
+        //    return askingresult;
+        //}
+
+        //Metodo que retorna el ID que el usuario usara para registrar sus reservas
+        public static string user_ID(string correo, string password)
+        {
+            string sql = $"SELECT nombre FROM Vendedores WHERE correo = '{correo}'AND contraseña = '{password}';";
+            string user_ID = "";
+            SQLiteCommand command = new SQLiteCommand(sql, crearConexion());
+           SQLiteDataAdapter da = new SQLiteDataAdapter(command);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            user_ID = dt.Rows[0][0].ToString();
+            return user_ID;
+        }
+
         public static int insertarDatos(string queryText) {
             SQLiteCommand db_command;
             SQLiteConnection db_connection = crearConexion();
@@ -93,7 +119,7 @@ namespace SistemaGestionMotosUES.Data
             db_command = db_connection.CreateCommand();
 
             db_command.CommandText = queryText;
-            SQLiteDataReader result = db_command.ExecuteReader();
+            SQLiteDataReader result = db_command.ExecuteReader();          
             resultado.Load(result);
 
             return resultado;

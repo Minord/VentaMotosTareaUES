@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SistemaGestionMotosUES.Validators;
 using SistemaGestionMotosUES.Models;
+using SistemaGestionMotosUES.Data;
 
 namespace SistemaGestionMotosUES
 {
@@ -16,12 +17,18 @@ namespace SistemaGestionMotosUES
     {
         public bool vendedorFinding = false;
         public Vendedor vendedor_resultado = null;
+        public bool encontrado = false;
         public Login()
         {
             InitializeComponent();
             textBoxPassword.PasswordChar = '*';
             buttonCancelar.CausesValidation = false;
             buttonRegistro.CausesValidation = false;
+        }
+
+        public bool encontradobool()
+        {
+            return encontrado;
         }
 
         private void ButtonCancelar_Click(object sender, EventArgs e)
@@ -50,14 +57,10 @@ namespace SistemaGestionMotosUES
                 if (Vendedor.revisarExistenciaPorCorreo(textBoxUsuario.Text)) {
                     if (Vendedor.revisarValidezPassword(textBoxUsuario.Text, textBoxPassword.Text)) {
 
-                        Vendedor vendedor = Vendedor.getVendedorPorId(Vendedor.getIdByCorreoAndPassword(textBoxUsuario.Text, textBoxPassword.Text).ToString());
-
-                        // Cerrar y enviar el usuario a el form1 1
-                        vendedorFinding = true;
-                        vendedor_resultado = vendedor;
-
-                        MessageBox.Show($"Se ha iniciado seccion al usuario {vendedor_resultado.nombre}");
-                        Close();
+                        string usuario = DataBasePort.user_ID(textBoxUsuario.Text, textBoxPassword.Text);
+                        MessageBox.Show("Se ha iniciado seccion al usuario "+usuario+"", "Bienvenido");
+                        encontrado = true;
+                        this.Dispose();
                     }
                     else {
                         MessageBox.Show("La contraseña no es valida");
@@ -74,6 +77,7 @@ namespace SistemaGestionMotosUES
                 MessageBox.Show("Tiene que llenar los campos correctamente");
             }
         }
+
 
         private void TextBoxUsuario_Validating(object sender, CancelEventArgs e)
         {

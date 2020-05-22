@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxNombre = new System.Windows.Forms.TextBox();
             this.labelFechaNacimiento = new System.Windows.Forms.Label();
             this.textBoxTelefono = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -42,6 +43,8 @@
             this.buttonActualizar = new System.Windows.Forms.Button();
             this.buttonCancelar = new System.Windows.Forms.Button();
             this.dateTimePickerNacimiento = new System.Windows.Forms.DateTimePicker();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -53,12 +56,14 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre";
             // 
-            // textBox1
+            // textBoxNombre
             // 
-            this.textBox1.Location = new System.Drawing.Point(125, 32);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(191, 20);
-            this.textBox1.TabIndex = 1;
+            this.textBoxNombre.Location = new System.Drawing.Point(125, 32);
+            this.textBoxNombre.Name = "textBoxNombre";
+            this.textBoxNombre.Size = new System.Drawing.Size(191, 20);
+            this.textBoxNombre.TabIndex = 1;
+            this.textBoxNombre.Validating += new System.ComponentModel.CancelEventHandler(this.TextBoxNombre_Validating);
+            this.textBoxNombre.Validated += new System.EventHandler(this.textBoxNombre_Validated);
             // 
             // labelFechaNacimiento
             // 
@@ -75,6 +80,8 @@
             this.textBoxTelefono.Name = "textBoxTelefono";
             this.textBoxTelefono.Size = new System.Drawing.Size(100, 20);
             this.textBoxTelefono.TabIndex = 7;
+            this.textBoxTelefono.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxTelefono_Validating);
+            this.textBoxTelefono.Validated += new System.EventHandler(this.textBoxTelefono_Validated);
             // 
             // label4
             // 
@@ -91,6 +98,8 @@
             this.textBoxCorreo.Name = "textBoxCorreo";
             this.textBoxCorreo.Size = new System.Drawing.Size(100, 20);
             this.textBoxCorreo.TabIndex = 9;
+            this.textBoxCorreo.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxCorreo_Validating);
+            this.textBoxCorreo.Validated += new System.EventHandler(this.textBoxCorreo_Validated);
             // 
             // label5
             // 
@@ -107,6 +116,8 @@
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.Size = new System.Drawing.Size(100, 20);
             this.textBoxPassword.TabIndex = 11;
+            this.textBoxPassword.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxPassword_Validating);
+            this.textBoxPassword.Validated += new System.EventHandler(this.textBoxPassword_Validated);
             // 
             // label6
             // 
@@ -123,6 +134,8 @@
             this.textBoxRepPassword.Name = "textBoxRepPassword";
             this.textBoxRepPassword.Size = new System.Drawing.Size(100, 20);
             this.textBoxRepPassword.TabIndex = 13;
+            this.textBoxRepPassword.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxRepPassword_Validating);
+            this.textBoxRepPassword.Validated += new System.EventHandler(this.textBoxRepPassword_Validated);
             // 
             // label7
             // 
@@ -141,6 +154,7 @@
             this.buttonActualizar.TabIndex = 14;
             this.buttonActualizar.Text = "Actualizar";
             this.buttonActualizar.UseVisualStyleBackColor = true;
+            this.buttonActualizar.Click += new System.EventHandler(this.ButtonActualizar_Click);
             // 
             // buttonCancelar
             // 
@@ -158,6 +172,12 @@
             this.dateTimePickerNacimiento.Name = "dateTimePickerNacimiento";
             this.dateTimePickerNacimiento.Size = new System.Drawing.Size(200, 20);
             this.dateTimePickerNacimiento.TabIndex = 16;
+            this.dateTimePickerNacimiento.Validating += new System.ComponentModel.CancelEventHandler(this.dateTimePickerNacimiento_Validating);
+            this.dateTimePickerNacimiento.Validated += new System.EventHandler(this.dateTimePickerNacimiento_Validated);
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
             // 
             // FormActualizarUsuario
             // 
@@ -176,10 +196,11 @@
             this.Controls.Add(this.textBoxTelefono);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.labelFechaNacimiento);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxNombre);
             this.Controls.Add(this.label1);
             this.Name = "FormActualizarUsuario";
             this.Text = "FormActualizarUsuario";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -188,7 +209,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxNombre;
         private System.Windows.Forms.Label labelFechaNacimiento;
         private System.Windows.Forms.TextBox textBoxTelefono;
         private System.Windows.Forms.Label label4;
@@ -201,5 +222,6 @@
         private System.Windows.Forms.Button buttonActualizar;
         private System.Windows.Forms.Button buttonCancelar;
         private System.Windows.Forms.DateTimePicker dateTimePickerNacimiento;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }
