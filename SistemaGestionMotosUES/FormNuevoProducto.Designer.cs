@@ -48,6 +48,8 @@
             this.buttonCancelar = new System.Windows.Forms.Button();
             this.textBoxDescripcion = new System.Windows.Forms.TextBox();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.textBoxYear = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
@@ -80,7 +82,7 @@
             // 
             // textBoxMarca
             // 
-            this.textBoxMarca.Location = new System.Drawing.Point(64, 119);
+            this.textBoxMarca.Location = new System.Drawing.Point(59, 119);
             this.textBoxMarca.Name = "textBoxMarca";
             this.textBoxMarca.Size = new System.Drawing.Size(100, 20);
             this.textBoxMarca.TabIndex = 5;
@@ -90,7 +92,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(23, 122);
+            this.label3.Location = new System.Drawing.Point(16, 122);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(37, 13);
             this.label3.TabIndex = 4;
@@ -220,11 +222,31 @@
             // 
             this.errorProvider.ContainerControl = this;
             // 
+            // textBoxYear
+            // 
+            this.textBoxYear.Location = new System.Drawing.Point(213, 119);
+            this.textBoxYear.Name = "textBoxYear";
+            this.textBoxYear.Size = new System.Drawing.Size(100, 20);
+            this.textBoxYear.TabIndex = 19;
+            this.textBoxYear.Validating += new System.ComponentModel.CancelEventHandler(this.TextBoxYear_Validating);
+            this.textBoxYear.Validated += new System.EventHandler(this.TextBoxYear_Validated);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(170, 122);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(29, 13);
+            this.label9.TabIndex = 18;
+            this.label9.Text = "Año:";
+            // 
             // FormNuevoProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(316, 382);
+            this.Controls.Add(this.textBoxYear);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonRegistrar);
             this.Controls.Add(this.textBoxStock);
@@ -272,5 +294,7 @@
         private System.Windows.Forms.Button buttonCancelar;
         private System.Windows.Forms.TextBox textBoxDescripcion;
         private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.TextBox textBoxYear;
+        private System.Windows.Forms.Label label9;
     }
 }

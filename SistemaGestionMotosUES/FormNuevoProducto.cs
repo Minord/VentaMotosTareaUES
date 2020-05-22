@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SistemaGestionMotosUES.Validators;
+using SistemaGestionMotosUES.Models;
 
 namespace SistemaGestionMotosUES
 {
@@ -189,7 +190,43 @@ namespace SistemaGestionMotosUES
 
         private void ButtonRegistrar_Click(object sender, EventArgs e)
         {
-            
+            string nombre = textBoxNombre.Text;
+            string descripcion = textBoxDescripcion.Text;
+            string marca = textBoxMarca.Text;
+            int year = Int32.Parse(textBoxYear.Text);
+            string modelo = textBoxModelo.Text;
+            string tipo = textBoxTipo.Text;
+            string color = textBoxColor.Text;
+            float price = float.Parse(textBoxPrecio.Text);
+            int stock = Int32.Parse(textBoxStock.Text);
+
+            Moto moto = new Moto(nombre, descripcion, marca, year, modelo, tipo, color, price, stock);
+            moto.registrarMotoDB();
+
+            MessageBox.Show($"Se ha registrado la moto: {moto.nombre}");
+
+            this.Close();
+            this.Dispose();
+        }
+
+        private void TextBoxYear_Validating(object sender, CancelEventArgs e)
+        {
+            string errorMsg = "Tine que ser numero";
+            string text = textBoxYear.Text;
+            if (!Validaciones.isNumber(text))
+            {
+                // Cancel the event and select the text to be corrected by the user.
+                e.Cancel = true;
+                textBoxYear.Select(0, textBoxYear.Text.Length);
+
+                // Set the ErrorProvider error with the text to display. 
+                errorProvider.SetError(textBoxYear, errorMsg);
+            }
+        }
+
+        private void TextBoxYear_Validated(object sender, EventArgs e)
+        {
+            errorProvider.SetError(textBoxYear, "");
         }
     }
 }

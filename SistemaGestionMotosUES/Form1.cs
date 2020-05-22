@@ -27,7 +27,7 @@ namespace SistemaGestionMotosUES
             InitializeComponent();
 
             //Add Todas las motos Registradas.
-            Moto m1 = new Moto("Es un moto bien chiva XDXDXD",
+            Moto m1 = new Moto("dsfds","Es un moto bien chiva XDXDXD",
                               "Toyota",
                               2005,
                               "Cero",
@@ -35,7 +35,7 @@ namespace SistemaGestionMotosUES
                               "Negro",
                               1305.0f,
                               4);
-            Moto m2 = new Moto("Es un moto bien chiva XDXDXD",
+            Moto m2 = new Moto("sdfsd","Es un moto bien chiva XDXDXD",
                                "Toyota",
                                2005,
                                "Dos",
