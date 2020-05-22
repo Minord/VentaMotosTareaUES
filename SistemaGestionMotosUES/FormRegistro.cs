@@ -202,6 +202,9 @@ namespace SistemaGestionMotosUES
 
                 vendedor.registrarVendedorDb();
                 MessageBox.Show("Vendedor Registrado");
+
+                    Close();
+                    Dispose();
             }
             else
             {
