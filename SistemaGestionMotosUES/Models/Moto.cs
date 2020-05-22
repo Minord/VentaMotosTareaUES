@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -110,14 +111,39 @@ namespace SistemaGestionMotosUES.Models
             return null;
         }
 
-        public static Moto getMotoDB(int moto_id) {
-            return null;
+        public static List<Moto> getTodasMotoDB() {
+            string queryTemplate = "SELECT moto_id, nombre, descripcion, marca, year, modelo,color, tipo, precio, strock FROM Motos;";
+
+            DataTable tableMotos = DataBasePort.getTableQuery(queryTemplate);
+            List<Moto> result = new List<Moto>();
+
+            foreach (DataRow row in tableMotos.Rows) {
+
+                int motoId = Int32.Parse(row["moto_id"].ToString());
+                string nombre = row["nombre"].ToString();
+                string descripcion = row["descripcion"].ToString();
+                string marca = row["marca"].ToString(); 
+                int year = Int32.Parse(row["year"].ToString());
+                string modelo = row["modelo"].ToString();
+                string tipo = row["tipo"].ToString();
+                string color = row["color"].ToString();
+                float price = float.Parse(row["precio"].ToString());
+                int stock = Int32.Parse(row["strock"].ToString());
+
+
+                Moto moto = new Moto(motoId, nombre, descripcion, marca, year, modelo, tipo, color, price, stock);
+
+                result.Add(moto);
+            }
+
+            return result;
         }
 
         public void registrarMotoDB() {
-            string query_register = "INSERT INTO Motos (nombre, descripcion, year, modelo,color, tipo, precio, strock) VALUES (" +
+            string query_register = "INSERT INTO Motos (nombre, descripcion, marca, year, modelo,color, tipo, precio, strock) VALUES (" +
                 $"'{nombre}'," +
                 $"'{descripcion}'," +
+                $"'{marca}'," +
                 $"{year}," +
                 $"'{modelo}'," +
                 $"'{color}'," +
