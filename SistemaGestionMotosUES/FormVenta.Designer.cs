@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxNombreCliente = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -48,6 +49,8 @@
             this.textBoxNombreMoto = new System.Windows.Forms.TextBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.textBoxNombreVendedor = new System.Windows.Forms.TextBox();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -65,6 +68,8 @@
             this.textBoxNombreCliente.Name = "textBoxNombreCliente";
             this.textBoxNombreCliente.Size = new System.Drawing.Size(231, 20);
             this.textBoxNombreCliente.TabIndex = 1;
+            this.textBoxNombreCliente.Validating += new System.ComponentModel.CancelEventHandler(this.TextBoxNombreCliente_Validating);
+            this.textBoxNombreCliente.Validated += new System.EventHandler(this.TextBoxNombreCliente_Validated);
             // 
             // label2
             // 
@@ -90,6 +95,8 @@
             this.textBoxNumTarjeta.Name = "textBoxNumTarjeta";
             this.textBoxNumTarjeta.Size = new System.Drawing.Size(231, 20);
             this.textBoxNumTarjeta.TabIndex = 7;
+            this.textBoxNumTarjeta.Validating += new System.ComponentModel.CancelEventHandler(this.TextBoxNumTarjeta_Validating);
+            this.textBoxNumTarjeta.Validated += new System.EventHandler(this.TextBoxNumTarjeta_Validated);
             // 
             // label4
             // 
@@ -125,6 +132,7 @@
             this.buttonComprar.TabIndex = 12;
             this.buttonComprar.Text = "Comprar";
             this.buttonComprar.UseVisualStyleBackColor = false;
+            this.buttonComprar.Click += new System.EventHandler(this.ButtonComprar_Click);
             // 
             // buttonCancelar
             // 
@@ -223,6 +231,10 @@
             this.textBoxNombreVendedor.Size = new System.Drawing.Size(231, 20);
             this.textBoxNombreVendedor.TabIndex = 24;
             // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            // 
             // FormVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -250,6 +262,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FormVenta";
             this.Text = "FormVenta";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -277,5 +290,6 @@
         private System.Windows.Forms.TextBox textBoxNombreMoto;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.TextBox textBoxNombreVendedor;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

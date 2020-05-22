@@ -57,6 +57,7 @@ namespace SistemaGestionMotosUES
             if (login.vendedorFinding)
             {
                 vendedorActual = login.vendedor_resultado;
+                actualizarListaMotos();
             }
             login.Dispose();
         }
