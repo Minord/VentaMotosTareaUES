@@ -86,6 +86,7 @@
             this.buttonConfUser.TabIndex = 2;
             this.buttonConfUser.Text = "Conf. de Usuario";
             this.buttonConfUser.UseVisualStyleBackColor = true;
+            this.buttonConfUser.Visible = false;
             this.buttonConfUser.Click += new System.EventHandler(this.ButtonConfUser_Click);
             // 
             // buttonNuevoProducto
@@ -96,6 +97,7 @@
             this.buttonNuevoProducto.TabIndex = 3;
             this.buttonNuevoProducto.Text = "Nuevo Producto";
             this.buttonNuevoProducto.UseVisualStyleBackColor = true;
+            this.buttonNuevoProducto.Visible = false;
             this.buttonNuevoProducto.Click += new System.EventHandler(this.ButtonNuevoProducto_Click);
             // 
             // groupBoxFiltro
