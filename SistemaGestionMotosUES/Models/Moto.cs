@@ -3,20 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SistemaGestionMotosUES.Data;
 
 namespace SistemaGestionMotosUES.Models
 {
     public class Moto
     {
-        public int moto_id { get; }
-        public string descripcion { get; }
-        public string marca { get; }
-        public int year { get; }
-        public string modelo { get; }
-        public string color { get; }
-        public string tipo { get; }
-        public float price { get; }
-        public int stock { get; }
+        public int moto_id { get; set; }
+
+        public string nombre { get; set; }
+
+        public string descripcion { get; set; }
+        public string marca { get; set; }
+        public int year { get; set; }
+        public string modelo { get; set; }
+        public string color { get; set; }
+        public string tipo { get; set; }
+        public float price { get; set; }
+        public int stock { get; set; }
 
 
         /// <summary>
@@ -32,6 +36,7 @@ namespace SistemaGestionMotosUES.Models
         /// <param name="price"></param>
         /// <param name="stock"></param>
         public Moto(
+            string nombre,
             string descripcion,
             string marca,
             int year,
@@ -41,6 +46,31 @@ namespace SistemaGestionMotosUES.Models
             float price,
             int stock) {
 
+            this.nombre = nombre;
+            this.descripcion = descripcion;
+            this.marca = marca;
+            this.year = year;
+            this.modelo = modelo;
+            this.tipo = tipo;
+            this.color = color;
+            this.price = price;
+            this.stock = stock;
+        }
+
+        public Moto(
+           int moto_id,
+           string nombre,
+           string descripcion,
+           string marca,
+           int year,
+           string modelo,
+           string tipo,
+           string color,
+           float price,
+           int stock)
+        {
+            this.moto_id = moto_id;
+            this.nombre = nombre;
             this.descripcion = descripcion;
             this.marca = marca;
             this.year = year;
@@ -85,7 +115,17 @@ namespace SistemaGestionMotosUES.Models
         }
 
         public void registrarMotoDB() {
-            
+            string query_register = "INSERT INTO Motos (nombre, descripcion, year, modelo,color, tipo, precio, strock) VALUES (" +
+                $"'{nombre}'," +
+                $"'{descripcion}'," +
+                $"{year}," +
+                $"'{modelo}'," +
+                $"'{color}'," +
+                $"'{tipo}'," +
+                $"{price}," +
+                $"{stock});";
+
+            moto_id = DataBasePort.insertarDatos(query_register);
         }
     }
 }
