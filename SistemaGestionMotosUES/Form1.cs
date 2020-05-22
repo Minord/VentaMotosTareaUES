@@ -213,7 +213,7 @@ namespace SistemaGestionMotosUES
 
         private void ButtonBuscar_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Esta funcionalidad no esta implementada: Lo Sentimos :(");
         }
     }
 }
