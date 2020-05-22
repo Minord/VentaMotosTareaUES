@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxNombre = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -46,6 +47,8 @@
             this.buttonRegistrar = new System.Windows.Forms.Button();
             this.buttonCancelar = new System.Windows.Forms.Button();
             this.textBoxDescripcion = new System.Windows.Forms.TextBox();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -63,6 +66,8 @@
             this.textBoxNombre.Name = "textBoxNombre";
             this.textBoxNombre.Size = new System.Drawing.Size(100, 20);
             this.textBoxNombre.TabIndex = 1;
+            this.textBoxNombre.Validating += new System.ComponentModel.CancelEventHandler(this.TextBoxNombre_Validating);
+            this.textBoxNombre.Validated += new System.EventHandler(this.TextBoxNombre_Validated);
             // 
             // label2
             // 
@@ -79,6 +84,8 @@
             this.textBoxMarca.Name = "textBoxMarca";
             this.textBoxMarca.Size = new System.Drawing.Size(100, 20);
             this.textBoxMarca.TabIndex = 5;
+            this.textBoxMarca.Validating += new System.ComponentModel.CancelEventHandler(this.TextBoxMarca_Validating);
+            this.textBoxMarca.Validated += new System.EventHandler(this.TextBoxMarca_Validated);
             // 
             // label3
             // 
@@ -95,6 +102,8 @@
             this.textBoxModelo.Name = "textBoxModelo";
             this.textBoxModelo.Size = new System.Drawing.Size(100, 20);
             this.textBoxModelo.TabIndex = 7;
+            this.textBoxModelo.Validating += new System.ComponentModel.CancelEventHandler(this.TextBoxModelo_Validating);
+            this.textBoxModelo.Validated += new System.EventHandler(this.TextBoxModelo_Validated);
             // 
             // label4
             // 
@@ -111,6 +120,8 @@
             this.textBoxColor.Name = "textBoxColor";
             this.textBoxColor.Size = new System.Drawing.Size(100, 20);
             this.textBoxColor.TabIndex = 9;
+            this.textBoxColor.Validating += new System.ComponentModel.CancelEventHandler(this.TextBoxColor_Validating);
+            this.textBoxColor.Validated += new System.EventHandler(this.TextBoxColor_Validated);
             // 
             // label5
             // 
@@ -127,6 +138,8 @@
             this.textBoxTipo.Name = "textBoxTipo";
             this.textBoxTipo.Size = new System.Drawing.Size(100, 20);
             this.textBoxTipo.TabIndex = 11;
+            this.textBoxTipo.Validating += new System.ComponentModel.CancelEventHandler(this.TextBoxTipo_Validating);
+            this.textBoxTipo.Validated += new System.EventHandler(this.TextBoxTipo_Validated);
             // 
             // label6
             // 
@@ -143,6 +156,8 @@
             this.textBoxPrecio.Name = "textBoxPrecio";
             this.textBoxPrecio.Size = new System.Drawing.Size(100, 20);
             this.textBoxPrecio.TabIndex = 13;
+            this.textBoxPrecio.Validating += new System.ComponentModel.CancelEventHandler(this.TextBoxPrecio_Validating);
+            this.textBoxPrecio.Validated += new System.EventHandler(this.TextBoxPrecio_Validated);
             // 
             // label7
             // 
@@ -159,6 +174,8 @@
             this.textBoxStock.Name = "textBoxStock";
             this.textBoxStock.Size = new System.Drawing.Size(100, 20);
             this.textBoxStock.TabIndex = 15;
+            this.textBoxStock.Validating += new System.ComponentModel.CancelEventHandler(this.TextBoxStock_Validating);
+            this.textBoxStock.Validated += new System.EventHandler(this.TextBoxStock_Validated);
             // 
             // label8
             // 
@@ -177,6 +194,7 @@
             this.buttonRegistrar.TabIndex = 16;
             this.buttonRegistrar.Text = "Registrar";
             this.buttonRegistrar.UseVisualStyleBackColor = true;
+            this.buttonRegistrar.Click += new System.EventHandler(this.ButtonRegistrar_Click);
             // 
             // buttonCancelar
             // 
@@ -195,6 +213,12 @@
             this.textBoxDescripcion.Name = "textBoxDescripcion";
             this.textBoxDescripcion.Size = new System.Drawing.Size(220, 55);
             this.textBoxDescripcion.TabIndex = 3;
+            this.textBoxDescripcion.Validating += new System.ComponentModel.CancelEventHandler(this.TextBoxDescripcion_Validating);
+            this.textBoxDescripcion.Validated += new System.EventHandler(this.TextBoxDescripcion_Validated);
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
             // 
             // FormNuevoProducto
             // 
@@ -221,6 +245,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FormNuevoProducto";
             this.Text = "Nuevo Producto";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -246,5 +271,6 @@
         private System.Windows.Forms.Button buttonRegistrar;
         private System.Windows.Forms.Button buttonCancelar;
         private System.Windows.Forms.TextBox textBoxDescripcion;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }
