@@ -54,12 +54,18 @@ namespace SistemaGestionMotosUES
             //Abrir nueva Ventana en El sistema
             Login login = new Login();
             login.ShowDialog();
-            if (login.vendedorFinding)
+            
+            if (login.encontradobool())
             {
                 vendedorActual = login.vendedor_resultado;
-                actualizarListaMotos();
             }
             login.Dispose();
+            //if (login.vendedorFinding)
+            //{
+            //    //vendedorActual = login.vendedor_resultado;
+
+            //}
+
         }
 
         private void TextBoxMinPrice_Validating(object sender, CancelEventArgs e)
