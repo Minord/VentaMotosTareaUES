@@ -27,6 +27,12 @@ namespace SistemaGestionMotosUES
             InitializeComponent();
 
             actualizarListaMotos();
+
+            buttonConfUser.CausesValidation = false;
+            buttonNuevoProducto.CausesValidation = false;
+            iniciarSeccionButton.CausesValidation = false;
+            tableLayoutPanel1.CausesValidation = false;
+            CausesValidation = false;
         }
 
         private void actualizarListaMotos() {
@@ -195,7 +201,8 @@ namespace SistemaGestionMotosUES
         private void ButtonNuevoProducto_Click(object sender, EventArgs e)
         {
             FormNuevoProducto formNuevoProducto = new FormNuevoProducto();
-            formNuevoProducto.Show();
+            formNuevoProducto.ShowDialog();
+            actualizarListaMotos();
         }
 
         private void ButtonConfUser_Click(object sender, EventArgs e)
