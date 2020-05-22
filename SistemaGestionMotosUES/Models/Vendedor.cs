@@ -58,7 +58,7 @@ namespace SistemaGestionMotosUES.Models
         }
 
         public static Vendedor getVendedorPorId(string vendedor_id) {
-            string query_text = $"SELECT vendedor_id, nombre, fecha_nacimiento, telefono, correo, direccion, contraseña FROM Vendedores WHERE vendedor_id = '{vendedor_id}';";
+            string query_text = $"SELECT vendedor_id, nombre, CAST(fecha_nacimiento AS text) AS fecha_nacimiento, telefono, correo, direccion, contraseña FROM Vendedores WHERE vendedor_id = '{vendedor_id}';";
 
 
             DataTable result = DataBasePort.getTableQuery(query_text);

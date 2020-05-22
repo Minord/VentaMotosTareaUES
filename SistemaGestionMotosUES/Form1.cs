@@ -58,6 +58,9 @@ namespace SistemaGestionMotosUES
             if (login.encontradobool())
             {
                 vendedorActual = login.vendedor_resultado;
+                actualizarListaMotos();
+                buttonNuevoProducto.Show();
+                buttonConfUser.Show();
             }
             login.Dispose();
             //if (login.vendedorFinding)

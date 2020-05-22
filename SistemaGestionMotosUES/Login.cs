@@ -60,7 +60,10 @@ namespace SistemaGestionMotosUES
                         string usuario = DataBasePort.user_ID(textBoxUsuario.Text, textBoxPassword.Text);
                         MessageBox.Show("Se ha iniciado seccion al usuario "+usuario+"", "Bienvenido");
                         encontrado = true;
-                        this.Dispose();
+
+                        vendedor_resultado = Vendedor.getVendedorPorId(Vendedor.getIdByCorreoAndPassword(textBoxUsuario.Text, textBoxPassword.Text).ToString());
+
+                        this.Close();
                     }
                     else {
                         MessageBox.Show("La contraseña no es valida");
