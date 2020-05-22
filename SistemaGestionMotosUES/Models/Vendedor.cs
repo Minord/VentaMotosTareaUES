@@ -152,7 +152,7 @@ namespace SistemaGestionMotosUES.Models
             DataBasePort.insertarDatos(registerQuery);
 
             //Disminuir el stock
-            DataBasePort.actualizarDatos($"UPDATE Motos SET stock = (stock -1) WHERE moto_id = {moto_id}");
+            DataBasePort.actualizarDatos($"UPDATE Motos SET strock = (strock -1) WHERE moto_id = {moto_id}");
         }
 
 
