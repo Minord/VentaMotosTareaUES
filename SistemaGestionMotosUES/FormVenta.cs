@@ -27,7 +27,7 @@ namespace SistemaGestionMotosUES
             textBoxNombreVendedor.Text = vendedor.nombre;
             textBoxPrecioMoto.Text = moto.price.ToString("C");
             textBoxIVA.Text = (moto.price*0.13f).ToString("C");
-            textBoxTotal.Text = (moto.price * 0.13f).ToString("C");
+            textBoxTotal.Text = (moto.price * 1.13f).ToString("C");
             textBoxNombreMoto.Text = moto.nombre;
 
             buttonCancelar.CausesValidation = false;
