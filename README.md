@@ -4,4 +4,4 @@ El punto es hacer en c# un sistema de gestion para una venta de motos
 
 ## Video:
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/NnUV5LzO5a4/0.jpg)](https://www.youtube.com/watch?v=NnUV5LzO5a4)
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/z5WgWSwVtgI/0.jpg)](https://www.youtube.com/watch?v=z5WgWSwVtgI)
